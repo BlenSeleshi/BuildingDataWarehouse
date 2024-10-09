@@ -15,7 +15,7 @@ logging.basicConfig(
     filename='scraper.log', 
     level=logging.INFO, 
     format='%(asctime)s - %(levelname)s - %(message)s',
-    filemode='w'  # Use 'w' to overwrite the log file each time; use 'a' to append to it
+    filemode='a'  
 )
 logger = logging.getLogger()
 
