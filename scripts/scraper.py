@@ -5,7 +5,7 @@ from telethon import TelegramClient
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv('.env')
+load_dotenv(r'C:\Users\Blen\OneDrive\Desktop\10Academy\BuildingDataWarehouse\.env')
 api_id = os.getenv('TG_API_ID')
 api_hash = os.getenv('TG_API_HASH')
 phone = os.getenv('phone')
@@ -69,7 +69,7 @@ async def main():
             '@yetenaweg',
             '@EAHCI',
             '@CheMed123',
-            'PHARMA39INFO'
+            '@PHARMA39INFO'
         ]
         
         # Iterate over channels and scrape data into the single CSV file
