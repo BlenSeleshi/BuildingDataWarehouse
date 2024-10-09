@@ -68,7 +68,8 @@ async def main():
             '@DoctorsET',
             '@yetenaweg',
             '@EAHCI',
-            '@CheMed123'
+            '@CheMed123',
+            'PHARMA39INFO'
         ]
         
         # Iterate over channels and scrape data into the single CSV file
