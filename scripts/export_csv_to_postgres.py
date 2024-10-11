@@ -3,6 +3,7 @@ import psycopg2
 import pandas as pd
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
+import csv
 
 # Load environment variables from .env file
 load_dotenv(r'C:\Users\Blen\OneDrive\Desktop\10Academy\BuildingDataWarehouse\.env')
@@ -76,16 +77,16 @@ def import_csv_to_postgres(csv_file_path, table_name):
         )
 
         # Open CSV file and load into a DataFrame
-        df = pd.read_csv(csv_file_path, encoding='utf-8')
+        df = pd.read_csv(csv_file_path, encoding='utf-8', quoting=csv.QUOTE_ALL, escapechar='\\')
 
         # Ensure DataFrame column names match the table columns
-        df.columns = ['channel title', 'channel username', 'message_id', 'message', 'date']
+        df.columns = ['channel_title', 'channel_username', 'message_id', 'message', 'date']
         
         # Create SQLAlchemy engine to facilitate DataFrame to SQL
         engine = create_engine(f'postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}')
         
         # Write the DataFrame to the specified table in PostgreSQL
-        df.to_sql(table_name, engine, if_exists='append', index=False)
+        df.to_sql(table_name, engine, if_exists='replace', index=False)
         
         print(f"CSV file '{csv_file_path}' imported successfully into '{table_name}' table")
 
