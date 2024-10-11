@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: public
+    schema: public
+    tables:
+      - name: raw_data
+
+models:
+  - name: transformed_telegram_data
+    description: "This model transforms raw telegram message from medical channels and filters out product name, price, phone number, and address."
+    columns:
+      - name: products
+        description: "The name of the medical product."
+        data_tests:
+          - not_null
+          - unique
