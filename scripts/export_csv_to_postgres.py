@@ -37,11 +37,11 @@ def create_table(table_name):
         create_table_query = f"""
         CREATE TABLE IF NOT EXISTS {table_name} (
             id SERIAL PRIMARY KEY,
-            Channel Title VARCHAR(255),
-            Channel Username VARCHAR(255),
-            ID BIGINT,
-            Message TEXT,
-            Date TIMESTAMPTZ,
+            channel_title VARCHAR(255),
+            channel_username VARCHAR(255),
+            message_id BIGINT,
+            message TEXT,
+            date TIMESTAMPTZ
         );
         """
         
@@ -79,7 +79,7 @@ def import_csv_to_postgres(csv_file_path, table_name):
         df = pd.read_csv(csv_file_path, encoding='utf-8')
 
         # Ensure DataFrame column names match the table columns
-        df.columns = ['Channel Title', 'Channel Username', 'ID', 'Message', 'Date']
+        df.columns = ['channel title', 'channel username', 'message_id', 'message', 'date']
         
         # Create SQLAlchemy engine to facilitate DataFrame to SQL
         engine = create_engine(f'postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}')
