@@ -37,13 +37,11 @@ def create_table(table_name):
         create_table_query = f"""
         CREATE TABLE IF NOT EXISTS {table_name} (
             id SERIAL PRIMARY KEY,
-            channel_name VARCHAR(255),
-            channel_handle VARCHAR(255),
-            message_id BIGINT,
-            message_text TEXT,
-            timestamp TIMESTAMPTZ,
-            media_path VARCHAR(255),
-            header_text VARCHAR(255)
+            Channel Title VARCHAR(255),
+            Channel Username VARCHAR(255),
+            ID BIGINT,
+            Message TEXT,
+            Date TIMESTAMPTZ,
         );
         """
         
