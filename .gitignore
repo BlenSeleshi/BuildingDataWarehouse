@@ -7,3 +7,6 @@ photos
 logs
 __pycache__
 yolov5
+detection_results
+yolov5s.pt
+detection_results_info
