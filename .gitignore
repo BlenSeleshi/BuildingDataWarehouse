@@ -5,3 +5,5 @@ scraping_session.session
 scraping_session.session-journal
 photos
 logs
+__pycache__
+yolov5
